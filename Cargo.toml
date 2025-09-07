@@ -1,6 +1,6 @@
 [package]
 name    = "ffmpeg-sys-next"
-version = "6.0.1"
+version = "8.0.1"
 build   = "build.rs"
 links   = "ffmpeg"
 
@@ -19,10 +19,10 @@ doctest = false
 libc = "0.2"
 
 [build-dependencies]
-num_cpus   = "1.15"
-cc         = "1.0"
+num_cpus   = "1.17"
+cc         = "1.2"
 pkg-config = "0.3"
-bindgen    = { version = "0.64", default-features = false, features = ["runtime"] }
+bindgen    = { version = "0.72", default-features = false, features = ["runtime"] }
 
 [target.'cfg(target_env = "msvc")'.build-dependencies]
 vcpkg = "0.2"
@@ -95,6 +95,18 @@ build-lib-x264             = ["build"]
 build-lib-x265             = ["build"]
 build-lib-avs              = ["build"]
 build-lib-xvid             = ["build"]
+
+# hardware accelleration
+build-videotoolbox = ["build"]
+build-audiotoolbox = ["build"]
+build-vaapi	       = ["build"]
+build-lib-d3d11va  = ["build"]
+build-lib-dxva2    = ["build"]
+build-nvidia       = ["build"]
+build-lib-libmfx   = ["build"]
+build-mediacodec   = ["build"]
+build-amf          = ["build"]
+build-vulkan       = ["build"]
 
 # protocols
 build-lib-smbclient = ["build"]
